@@ -605,9 +605,9 @@
       I was the sole owner of a production platform that processed 10M+ records a day for Fortune 500 brands —
       end to end, from API extraction through to client-facing delivery. My differentiator is that I ship
       production LLM systems, not demos: integrating models into real pipelines, validating them against golden
-      sets, and pinning down cost and determinism before anything reaches a customer. My background in applied
-      mathematics and cryptography is where the instinct comes from — make it observable, make it reproducible,
-      and never trust a black box silently.
+      sets, and pinning down cost and determinism before anything reaches a customer. Five-plus years across
+      Databricks, BigQuery, and AWS, and a background in applied mathematics and cryptography, are where the
+      instinct comes from — make it observable, make it reproducible, and never trust a black box silently.
     </p>
   </section>
 
@@ -627,14 +627,18 @@
         <div class="card-tag">production platform · flagship</div>
         <h3>Daily orchestration platform</h3>
         <p>
-          Sole owner of an end-to-end platform serving Fortune 500 brands: API extraction → Unity Catalog →
-          enrichment → client-facing delivery. Owned the architecture, the reliability, and the on-call for a
-          system that ran every day at scale, on Databricks with PySpark and Delta Lake.
+          Sole owner, end to end, of the orchestration platform behind campaign, spend, and audience reporting.
+          The core pipeline resolves a client and date range down through campaigns → creators → posts, merges the
+          spend tables, and rolls up cost metrics — architected as one platform that grew to fold in audience
+          analysis and benchmark (IMBv2) exports, with a self-service wizard so non-technical stakeholders can run
+          it themselves. Runs daily on Databricks (distributed PySpark, Unity Catalog, Delta Lake) with
+          rerunnable, failure-isolated stages.
         </p>
         <div class="metric-line">
           <span><span class="lbl">throughput</span> 10M+ records / day</span>
-          <span><span class="lbl">clients</span> dozens of Fortune 500 brands</span>
-          <span><span class="lbl">ownership</span> sole engineer, end to end</span>
+          <span><span class="lbl">volume</span> 10–100 TB</span>
+          <span><span class="lbl">clients</span> 25–75 Fortune 500</span>
+          <span><span class="lbl">acv</span> $5–15M supported</span>
         </div>
         <div class="stackrow">
           <span class="chip">Databricks</span><span class="chip">PySpark</span><span class="chip">Delta Lake</span>
@@ -644,33 +648,36 @@
 
       <div class="card reveal">
         <div class="card-tag">applied AI · in production</div>
-        <h3>Production LLM enrichment</h3>
+        <h3>LLM segmentation &amp; sentiment</h3>
         <p>
-          Integrated Gemini into the platform through Databricks Mosaic AI for bounded entity extraction and
-          classification. Selected the model on cost, post-filtered deterministically, and validated output
-          against a golden set with full-sample comparison before it shipped.
+          Integrated Gemini into the production audience pipeline at 10M+ scale through the Databricks Mosaic AI
+          Foundation Model API. Set a logistic-regression baseline first, then ran prompt-driven segmentation,
+          enrichment, and false-positive correction — classifying posts by region, locations, competitor mentions,
+          and sentiment — with batch handling, rate-limit management, and output validation between the six-month
+          reruns. Built to generalize to any post or brand as a reusable service.
         </p>
         <div class="stackrow">
-          <span class="chip">Gemini</span><span class="chip">Mosaic AI</span><span class="chip">OpenAI SDK</span>
-          <span class="chip">golden-set eval</span>
+          <span class="chip">Gemini</span><span class="chip">Mosaic AI</span><span class="chip">prompt engineering</span>
+          <span class="chip">logistic regression</span><span class="chip">sentiment</span>
         </div>
       </div>
 
       <div class="card reveal">
-        <div class="card-tag">performance · re-architecture</div>
-        <h3>12h → 2min migration</h3>
+        <div class="card-tag">performance · algorithms</div>
+        <h3>Classification: 12h → 2min</h3>
         <p>
-          Re-architected a batch process that took twelve hours down to under two minutes by moving the work onto
-          the right compute model and cutting redundant passes — turning an overnight job into something that runs
-          on demand.
+          Migrated brand-and-product classification from a 12-hour manual process to a 2-minute distributed
+          PySpark job — swapping a naive per-post keyword scan for a dictionary-based approach running NLP feature
+          extraction across 5–10M influencer records per cycle, validated against the senior analyst's golden-set
+          output with full sample comparison.
         </p>
         <div class="metric-line">
-          <span><span class="lbl">before</span> ~12 hours</span>
-          <span><span class="lbl">after</span> &lt; 2 minutes</span>
-          <span><span class="lbl">delta</span> ~360× faster</span>
+          <span><span class="lbl">before</span> 12h manual</span>
+          <span><span class="lbl">after</span> 2min PySpark</span>
+          <span><span class="lbl">scale</span> 5–10M records / cycle</span>
         </div>
         <div class="stackrow">
-          <span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">Delta Lake</span>
+          <span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">NLP features</span>
         </div>
       </div>
 
@@ -678,38 +685,45 @@
         <div class="card-tag">analytics · segmentation</div>
         <h3>Audience &amp; campaign analytics</h3>
         <p>
-          Built the analytics layer behind creator and campaign reporting: audience segmentation across tiers
-          (VIP → MEGA → MACRO → MID → MICRO → NANO), multi-currency spend normalization, and rolled-up cost
-          KPIs (CPP, CPV, CPE, CPVV, CPSV, CPME) delivered to clients.
+          Built the Databricks SQL analytics behind creator and campaign reporting: resolved alias influencer IDs,
+          tiered audiences (VIP → MEGA → MACRO → MID → MICRO → NANO), and computed demographic distributions
+          (gender, age, ethnicity, interests, geography) with Hamilton-style apportionment so rounded counts stay
+          mathematically consistent with their totals. On the spend side, multi-currency normalization rolled up
+          to cost KPIs (CPP, CPE, CPVV, CPSV, CPME).
         </p>
         <div class="stackrow">
-          <span class="chip">SQL</span><span class="chip">PySpark</span><span class="chip">Databricks SQL</span>
-          <span class="chip">currency FX</span>
+          <span class="chip">SQL</span><span class="chip">Spark SQL</span><span class="chip">Databricks SQL</span>
+          <span class="chip">apportionment</span><span class="chip">currency FX</span>
         </div>
       </div>
 
       <div class="card reveal">
-        <div class="card-tag">tooling · self-service</div>
-        <h3>Client export tooling</h3>
+        <div class="card-tag">tooling · orchestration</div>
+        <h3>Export orchestrator</h3>
         <p>
-          Designed and shipped the self-service export path that let client teams pull sanitized, delivery-ready
-          data out of the platform without an engineer in the loop — a wizard front-end over a governed
-          data layer.
+          Built a wizard-driven export orchestrator in Databricks that runs four export lanes — audience analytics,
+          campaign &amp; spend, and two benchmark exporters — from one control surface. Selections persist across
+          reruns in a Unity Catalog state table, a sticky-widget pattern surfaces only the relevant step, and
+          results ship straight to Google Sheets via service-account auth or as a self-contained ZIP payload —
+          no engineer in the loop.
         </p>
         <div class="stackrow">
           <span class="chip">Python</span><span class="chip">Databricks</span><span class="chip">Unity Catalog</span>
+          <span class="chip">Sheets API</span><span class="chip">wizard UI</span>
         </div>
       </div>
 
       <div class="card reveal">
         <div class="card-tag">open source · repo</div>
-        <h3>OCR agent</h3>
+        <h3>OCR Agent</h3>
         <p>
-          An agentic OCR pipeline that extracts structured data from documents — the kind of glue work that turns
-          messy scanned inputs into something a downstream system can actually use.
+          A desktop agent that watches a folder for screenshots, runs Tesseract OCR, queries an LLM, and surfaces
+          the response. A queue-based threading bridge keeps UI updates safe, with env-var configuration and typed
+          error handling throughout.
         </p>
         <div class="stackrow">
-          <span class="chip">Python</span><span class="chip">OpenAI SDK</span><span class="chip">OCR</span>
+          <span class="chip">Python</span><span class="chip">Tesseract</span><span class="chip">OpenAI SDK</span>
+          <span class="chip">threading</span>
         </div>
         <a id="repo-ocr" class="repo-link" href="#" target="_blank" rel="noopener">→ github.com/fernandolcuevas/OCR_GPT</a>
       </div>
@@ -912,43 +926,50 @@
       <div class="stack-group">
         <h4>languages</h4>
         <div class="chips">
-          <span class="chip">Python</span><span class="chip">SQL</span>
+          <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">T-SQL</span><span class="chip">Bash</span>
         </div>
       </div>
       <div class="stack-group">
         <h4>data &amp; compute</h4>
         <div class="chips">
-          <span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">Delta Lake</span>
-          <span class="chip">Unity Catalog</span><span class="chip">Mosaic AI</span><span class="chip">BigQuery</span>
+          <span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">Databricks</span>
+          <span class="chip">Delta Lake</span><span class="chip">Unity Catalog</span><span class="chip">Mosaic AI</span>
           <span class="chip">SQL Server</span>
         </div>
       </div>
       <div class="stack-group">
-        <h4>cloud</h4>
+        <h4>cloud · aws + gcp</h4>
         <div class="chips">
           <span class="chip">AWS S3</span><span class="chip">Redshift</span><span class="chip">Glue</span>
-          <span class="chip">Lambda</span><span class="chip">GCS</span>
+          <span class="chip">Lambda</span><span class="chip">GCP BigQuery</span><span class="chip">GCS</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>data engineering</h4>
+        <div class="chips">
+          <span class="chip">orchestration</span><span class="chip">fact / dimension modeling</span><span class="chip">query optimization</span>
+          <span class="chip">rerunnable pipelines</span><span class="chip">reconciliation &amp; QA</span>
         </div>
       </div>
       <div class="stack-group">
         <h4>ai &amp; ml</h4>
         <div class="chips">
-          <span class="chip">Gemini</span><span class="chip">OpenAI SDK</span><span class="chip">embeddings</span>
-          <span class="chip">golden-set eval</span>
+          <span class="chip">Gemini</span><span class="chip">Mosaic AI</span><span class="chip">prompt engineering</span>
+          <span class="chip">batch handling</span><span class="chip">LLM agents</span><span class="chip">OpenAI SDK</span>
         </div>
       </div>
       <div class="stack-group">
         <h4>ops &amp; tooling</h4>
         <div class="chips">
-          <span class="chip">Git</span><span class="chip">GitHub Actions</span><span class="chip">Azure DevOps</span>
-          <span class="chip">Docker</span>
+          <span class="chip">Git</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span>
+          <span class="chip">Azure DevOps</span><span class="chip">runbooks</span>
         </div>
       </div>
       <div class="stack-group">
-        <h4>analysis &amp; bi</h4>
+        <h4>libraries &amp; bi</h4>
         <div class="chips">
-          <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Tableau</span>
-          <span class="chip">Alteryx</span>
+          <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Dask</span>
+          <span class="chip">Flask</span><span class="chip">Tableau</span><span class="chip">Alteryx</span>
         </div>
       </div>
     </div>
@@ -963,16 +984,18 @@
       <div class="xp-item">
         <div class="xp-when">Nov 2024 — Apr 2026</div>
         <div>
-          <div class="xp-role">Data Engineer</div>
-          <div class="xp-co">Traackr</div>
+          <div class="xp-role">Senior Data Engineer / Analytics Engineer</div>
+          <div class="xp-co">Traackr · Remote (NYC)</div>
           <div class="xp-body">
-            Sole owner of the daily production data platform behind an influencer-marketing product used by
+            Sole owner, end to end, of the daily production platform behind an influencer-marketing product used by
             Fortune 500 brands.
             <ul>
-              <li>Owned a 10M+ record/day pipeline end to end on Databricks — extraction, enrichment, governance, and delivery.</li>
-              <li>Shipped production LLM enrichment (Gemini via Mosaic AI), validated against a golden set before release.</li>
-              <li>Re-architected a 12-hour batch job to run in under two minutes.</li>
-              <li>Built the audience/campaign analytics and the self-service export tooling clients used directly.</li>
+              <li>Architected the end-to-end orchestration platform on Databricks — API extraction, Unity Catalog transformations, multi-stage enrichment, delivery — with a self-service wizard for non-technical stakeholders.</li>
+              <li>Owned daily pipelines processing 10M+ records and 10–100TB across 25–75 Fortune 500 clients, supporting $5–15M in annual contract value.</li>
+              <li>Migrated brand-and-product classification from 12h manual work to a 2-minute distributed PySpark job (5–10M records/cycle), validated against the senior analyst's golden-set output.</li>
+              <li>Integrated Gemini via the Databricks Mosaic AI Foundation Model API at 10M+ scale — prompt-driven enrichment, segmentation, and false-positive correction.</li>
+              <li>Cut deliverable turnaround ~50% with rerunnable, failure-isolated pipelines, and built reconciliation checks that caught a production data gap a shipped deliverable had already run on.</li>
+              <li>Technical escalation point for a 5-person analytics team on the hardest deliverables (incl. Samsung Unpacked launch tracking); mentored analysts through new patterns and runbooks.</li>
             </ul>
           </div>
         </div>
@@ -981,12 +1004,17 @@
       <div class="xp-item">
         <div class="xp-when">May 2021 — Nov 2024</div>
         <div>
-          <div class="xp-role">Analytics Developer</div>
-          <div class="xp-co">Buxton — now Audiense</div>
+          <div class="xp-role">Analytics Developer / Analytical Engineer</div>
+          <div class="xp-co">Buxton — now Audiense · Remote (Ft. Worth, TX)</div>
           <div class="xp-body">
-            Built and maintained analytics pipelines over large geospatial and consumer datasets, developing the
-            data-engineering foundation — SQL, pipeline design, and BI delivery — that the later platform work
-            was built on.
+            Three and a half years engineering data pipelines over large consumer and retail datasets in a
+            geospatial / location-intelligence domain — the longest and most foundational stretch of my career.
+            <ul>
+              <li>Cut BigQuery cost and runtime ~15–20% on 150TB+ recurring operations through clustering and partitioning strategies.</li>
+              <li>Built a multi-source production pipeline (Excel, Alteryx, Experian, BigQuery, GCS) powering a client-facing web app that drove $1M+ in ARR.</li>
+              <li>Engineered AWS-based ETL with S3, Redshift, Glue, and Lambda for production data movement across multiple client accounts.</li>
+              <li>Laid the SQL, pipeline, and BI foundation the later Databricks platform work was built on.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1002,6 +1030,11 @@
         <div class="k">certification</div>
         <h4>Alteryx Designer Core</h4>
         <p>Certified in Alteryx Designer for data prep and workflow automation.</p>
+      </div>
+      <div class="edu-card">
+        <div class="k">certification</div>
+        <h4>Python</h4>
+        <p>Certified in Python since 2021.</p>
       </div>
     </div>
   </section>
@@ -1038,9 +1071,9 @@
      ===================================================================== */
   const CONFIG = {
     name:       "Fernando Cuevas",
-    email:      "fernandolcuevas@gmail.com",
-    phone:      "",                       // intentionally NOT displayed (spam). Add here only if you want it wired somewhere.
-    resumeUrl:  "Fernando_Cuevas_Resume.pdf",   // drop this PDF next to index.html, or point to a hosted URL
+    email:      "fernandoleonardocuevas@gmail.com",
+    phone:      "(718) 517-0680",             // intentionally NOT displayed (spam). Here only for reference.
+    resumeUrl:  "Fernando_Cuevas_SeniorDataEngineer.pdf",  // drop this PDF next to index.html, or point to a hosted URL
     github:     "https://github.com/fernandolcuevas",
     linkedin:   "https://www.linkedin.com/in/fernando-c-4325661b6",
 
