@@ -637,9 +637,9 @@
         </p>
         <div class="metric-line">
           <span><span class="lbl">throughput</span> 10M+ records / day</span>
-          <span><span class="lbl">volume</span> 10–100 TB</span>
-          <span><span class="lbl">clients</span> 25–75 Fortune 500</span>
-          <span><span class="lbl">acv</span> $5–15M supported</span>
+          <span><span class="lbl">volume</span> tens of TB</span>
+          <span><span class="lbl">clients</span> dozens of Fortune 500</span>
+          <span><span class="lbl">acv</span> $5M+ supported</span>
         </div>
         <div class="stackrow">
           <span class="chip">Databricks</span><span class="chip">PySpark</span><span class="chip">Delta Lake</span>
@@ -651,11 +651,11 @@
         <div class="card-tag">applied AI · in production</div>
         <h3>LLM segmentation &amp; sentiment</h3>
         <p>
-          Integrated Gemini into the production audience pipeline at 10M+ scale through the Databricks Mosaic AI
-          Foundation Model API. Set a logistic-regression baseline first, then ran prompt-driven segmentation,
-          enrichment, and false-positive correction — classifying posts by region, locations, competitor mentions,
-          and sentiment — with batch handling, rate-limit management, and output validation between the six-month
-          reruns. Built to generalize to any post or brand as a reusable service.
+          Built production LLM segmentation on Gemini via the Databricks Mosaic AI Foundation Model API —
+          classifying ~65K posts a year across a two-year corpus by region, locations, competitor mentions, and
+          sentiment. I set a logistic-regression baseline first, held to a 98% accuracy target, and replaced the
+          manual segmentation process, with batch handling, rate-limit management, and validation between the
+          six-month reruns. Built to generalize to any post or brand.
         </p>
         <div class="stackrow">
           <span class="chip">Gemini</span><span class="chip">Mosaic AI</span><span class="chip">prompt engineering</span>
@@ -669,13 +669,13 @@
         <p>
           Migrated brand-and-product classification from a 12-hour manual process to a 2-minute distributed
           PySpark job — swapping a naive per-post keyword scan for a dictionary-based approach running NLP feature
-          extraction across 5–10M influencer records per cycle, validated against the senior analyst's golden-set
-          output with full sample comparison.
+          extraction across millions of influencer records per cycle, validated against the senior analyst's
+          golden-set output with full sample comparison.
         </p>
         <div class="metric-line">
           <span><span class="lbl">before</span> 12h manual</span>
           <span><span class="lbl">after</span> 2min PySpark</span>
-          <span><span class="lbl">scale</span> 5–10M records / cycle</span>
+          <span><span class="lbl">scale</span> millions / cycle</span>
         </div>
         <div class="stackrow">
           <span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">NLP features</span>
@@ -963,7 +963,7 @@
         <h4>ops &amp; tooling</h4>
         <div class="chips">
           <span class="chip">Git</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span>
-          <span class="chip">Azure DevOps</span><span class="chip">runbooks</span>
+          <span class="chip">Docker</span><span class="chip">Azure DevOps</span><span class="chip">runbooks</span>
         </div>
       </div>
       <div class="stack-group">
@@ -985,16 +985,16 @@
       <div class="xp-item">
         <div class="xp-when">Nov 2024 — Apr 2026</div>
         <div>
-          <div class="xp-role">Senior Data Engineer / Analytics Engineer</div>
+          <div class="xp-role">Senior Data Analyst</div>
           <div class="xp-co">Traackr · Remote (NYC)</div>
           <div class="xp-body">
             Sole owner, end to end, of the daily production platform behind an influencer-marketing product used by
             Fortune 500 brands.
             <ul>
               <li>Architected the end-to-end orchestration platform on Databricks — API extraction, Unity Catalog transformations, multi-stage enrichment, delivery — with a self-service wizard for non-technical stakeholders.</li>
-              <li>Owned daily pipelines processing 10M+ records and 10–100TB across 25–75 Fortune 500 clients, supporting $5–15M in annual contract value.</li>
-              <li>Migrated brand-and-product classification from 12h manual work to a 2-minute distributed PySpark job (5–10M records/cycle), validated against the senior analyst's golden-set output.</li>
-              <li>Integrated Gemini via the Databricks Mosaic AI Foundation Model API at 10M+ scale — prompt-driven enrichment, segmentation, and false-positive correction.</li>
+              <li>Owned daily pipelines processing 10M+ records across tens of terabytes for dozens of Fortune 500 clients, supporting $5M+ in annual contract value.</li>
+              <li>Migrated brand-and-product classification from 12h manual work to a 2-minute distributed PySpark job (millions of records/cycle), validated against the senior analyst's golden-set output.</li>
+              <li>Built production LLM segmentation on Gemini (Databricks Mosaic AI) — ~65K posts/year over two years, against a logistic-regression baseline and a 98% accuracy target — replacing the manual process.</li>
               <li>Cut deliverable turnaround ~50% with rerunnable, failure-isolated pipelines, and built reconciliation checks that caught a production data gap a shipped deliverable had already run on.</li>
               <li>Technical escalation point for a 5-person analytics team on the hardest deliverables (incl. Samsung Unpacked launch tracking); mentored analysts through new patterns and runbooks.</li>
             </ul>
@@ -1005,16 +1005,16 @@
       <div class="xp-item">
         <div class="xp-when">May 2021 — Nov 2024</div>
         <div>
-          <div class="xp-role">Analytics Developer / Analytical Engineer</div>
+          <div class="xp-role">Data Scientist</div>
           <div class="xp-co">Buxton — now Audiense · Remote (Ft. Worth, TX)</div>
           <div class="xp-body">
-            Three and a half years engineering data pipelines over large consumer and retail datasets in a
+            Three and a half years of data science and pipeline work over large consumer and retail datasets in a
             geospatial / location-intelligence domain — the longest and most foundational stretch of my career.
             <ul>
+              <li>Powered "Personas," an LLM-and-embeddings system that generated client-specific demographic persona sets — ran the LLM execution and moved embeddings from Redshift to local compute for the final step.</li>
               <li>Cut BigQuery cost and runtime ~15–20% on 150TB+ recurring operations through clustering and partitioning strategies.</li>
-              <li>Built a multi-source production pipeline (Excel, Alteryx, Experian, BigQuery, GCS) powering a client-facing web app that drove $1M+ in ARR.</li>
-              <li>Engineered AWS-based ETL with S3, Redshift, Glue, and Lambda for production data movement across multiple client accounts.</li>
-              <li>Laid the SQL, pipeline, and BI foundation the later Databricks platform work was built on.</li>
+              <li>Owned a monthly foot-traffic export for a national retail client — ranking locations by month-over-month traffic — automated with Alteryx, GCP, MySQL, and SQL Server.</li>
+              <li>Built pipeline work on the team-owned, multi-source pipeline (Excel, Alteryx, Experian, BigQuery, GCS) behind a client-facing web app that drove $1M+ in ARR.</li>
             </ul>
           </div>
         </div>
