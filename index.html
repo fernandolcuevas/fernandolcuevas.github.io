@@ -718,15 +718,16 @@
         <div class="card-tag">open source · repo</div>
         <h3>OCR Agent</h3>
         <p>
-          A desktop agent that watches a folder for screenshots, runs Tesseract OCR, queries an LLM, and surfaces
-          the response. A queue-based threading bridge keeps UI updates safe, with env-var configuration and typed
-          error handling throughout.
+          A desktop agent that watches a folder for screenshots, runs Tesseract OCR, queries an LLM, 
+          and surfaces the response. A queue-based threading bridge keeps Tk updates on the main 
+          thread while OCR and API calls run off it, and a first-run wizard collects the API key 
+          and watch folder at runtime — nothing is compiled into the distributed binary.
         </p>
         <div class="stackrow">
           <span class="chip">Python</span><span class="chip">Tesseract</span><span class="chip">OpenAI SDK</span>
           <span class="chip">threading</span>
         </div>
-        <a id="repo-ocr" class="repo-link" href="#" target="_blank" rel="noopener">→ github.com/fernandolcuevas/OCR_GPT</a>
+        <a id="repo-ocr" class="repo-link" href="#" target="_blank" rel="noopener">→ github.com/fernandolcuevas/ocrv2</a>
       </div>
 
       <div class="card reveal">
@@ -1079,7 +1080,7 @@
     linkedin:   "https://www.linkedin.com/in/fernandoleonardocuevas/",
 
     projects: {
-      ocr:       "https://github.com/fernandolcuevas/OCR_GPT",                 // VERIFY exact repo name
+      ocr_v2:       "https://github.com/fernandolcuevas/ocrv2",                   // VERIFY exact repo name
       segmenter: "https://github.com/fernandolcuevas/llm-influencer-segmenter",// VERIFY exact repo name
       shelf:     "https://github.com/fernandolcuevas/shelf-aware"              // VERIFY / set to live demo, or comment out to hide
     }
