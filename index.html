@@ -697,7 +697,29 @@
           <span class="chip">apportionment</span><span class="chip">currency FX</span>
         </div>
       </div>
-
+      <div class="card reveal">
+        <div class="card-tag">open source · repo</div>
+        <h3>Fleet revenue &amp; market mobility</h3>
+        <p>
+          A Databricks SQL pipeline and AI/BI dashboard where the naive utilization
+          metric nearly justified divesting the wrong equipment class. Cohort
+          normalization lifted portfolio utilization from 22.1% to 29.65% and inverted
+          the Dirt/Aerial ranking — the gap was a purchasing schedule, not performance.
+          A three-state movement classification fixed a boolean that counted broken
+          foreign keys as cross-market travel, and the build validates itself with
+          row-parity and grain assertions.
+        </p>
+        <div class="metric-line">
+          <span><span class="lbl">naive</span> 22.1%</span>
+          <span><span class="lbl">cohorted</span> 29.65%</span>
+          <span><span class="lbl">grain</span> rental × month</span>
+        </div>
+        <div class="stackrow">
+          <span class="chip">Databricks SQL</span><span class="chip">Delta Lake</span>
+          <span class="chip">AI/BI dashboards</span><span class="chip">data modeling</span>
+        </div>
+        <a id="repo-fleet" class="repo-link" href="#" target="_blank" rel="noopener">→ github.com/fernandolcuevas/Fleet_Revenue_Market_Mobility_Dashboard</a>
+      </div>
       <div class="card reveal">
         <div class="card-tag">tooling · orchestration</div>
         <h3>Export orchestrator</h3>
@@ -727,7 +749,7 @@
           <span class="chip">Python</span><span class="chip">Tesseract</span><span class="chip">OpenAI SDK</span>
           <span class="chip">threading</span>
         </div>
-        <a id="repo-ocr" class="repo-link" href="#" target="_blank" rel="noopener">→github.com/fernandolcuevas/OCR_Agent</a>
+        <a id="repo-ocr" class="repo-link" href="#" target="_blank" rel="noopener">→ github.com/fernandolcuevas/OCR_Agent</a>
       </div>
 
       <div class="card reveal">
@@ -1082,7 +1104,8 @@
     projects: {
       ocr_v2:    "https://github.com/fernandolcuevas/OCR_Agent",                   // VERIFY exact repo name
       segmenter: "https://github.com/fernandolcuevas/llm-influencer-segmenter",// VERIFY exact repo name
-      shelf:     "https://github.com/fernandolcuevas/shelf-aware"              // VERIFY / set to live demo, or comment out to hide
+      shelf:     "https://github.com/fernandolcuevas/shelf-aware",
+      fleet:     "https://github.com/fernandolcuevas/Fleet_Revenue_Market_Mobility_Dashboard"// VERIFY / set to live demo, or comment out to hide
     }
   };
 
@@ -1099,6 +1122,7 @@
     set("repo-ocr", CONFIG.projects.ocr_v2);
     set("repo-segmenter", CONFIG.projects.segmenter);
     set("repo-shelf", CONFIG.projects.shelf);
+    set("repo-fleet", CONFIG.projects.fleet);
     set("contact-email", mail);
     set("contact-linkedin", CONFIG.linkedin);
     set("contact-github", CONFIG.github);
